@@ -27,8 +27,13 @@ class SuperHeroDetailViewController: KataSuperHeroesViewController, SuperHeroDet
 
     func show(superHero: SuperHero?) {
         guard let superHero = superHero else {
+            userLabel.text = "No SuperHero!"
+            userLabel.isHidden = false
+            descriptionLabel.text = "Vaite burro!"
+            descriptionLabel.isHidden = false
             return
         }
+        
         userLabel.text = superHero.name
         userLabel.accessibilityLabel = "Name: \(superHero.name)"
         userLabel.isHidden = false
