@@ -15,11 +15,14 @@ class ScreenshotTest: FBSnapshotTestCase {
         self.recordMode = ProcessInfo.processInfo.environment["RECORD_MODE"] != nil
     }
 
-    func verify(viewController: UIViewController) {
+    func verify(viewController: UIViewController, frame: CGRect? = nil) {
+        viewController.view.frame = frame ?? viewController.view.frame;
         verify(view: viewController.view)
     }
 
-    func verify(view: UIView) {
+    func verify(view: UIView, frame: CGRect? = nil) {
+        
+        view.frame = frame ?? view.frame;
         FBSnapshotVerifyView(view)
     }
 }

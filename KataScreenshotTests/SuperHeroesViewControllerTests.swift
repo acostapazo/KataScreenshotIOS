@@ -61,6 +61,37 @@ class SuperHeroesViewControllerTests: ScreenshotTest {
         verify(viewController: viewController)
     }
     
+    func testShowTenSuperHeroAvengersWithHeight500() {
+        givenThereAreSomeSuperHeroes(10, avengers: true)
+        
+        let viewController = getSuperHeroViewController()
+        
+        var newFrame = viewController.view.frame
+        newFrame.size.height = 500
+        verify(viewController: viewController, frame: newFrame)
+    }
+    
+    func testShowTenSuperHeroAvengersWithHeight2000() {
+        givenThereAreSomeSuperHeroes(10, avengers: true)
+        
+        let viewController = getSuperHeroViewController()
+        
+        var newFrame = viewController.view.frame
+        newFrame.size.height = 2000
+        verify(viewController: viewController, frame: newFrame)
+    }
+    
+    func testShowTenSuperHeroAvengersWithWidth1000() {
+        givenThereAreSomeSuperHeroes(10, avengers: true)
+        
+        let viewController = getSuperHeroViewController()
+        
+        var newFrame = viewController.view.frame
+        newFrame.size.width = 1000
+        verify(viewController: viewController, frame: newFrame)
+    }
+    
+    
     func testShowTenSuperHeroNotAvengers() {
         givenThereAreSomeSuperHeroes(10, avengers: false)
         
